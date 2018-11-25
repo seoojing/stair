@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+@font-face {
+      font-family: "DungGeunMo";
+      src: url("DungGeunMo.woff");
+    }
+body{background-color: #484535; font-family: "DungGeunMo";}
+	html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#poom{bottom: 10%; font-weight: 5px; font-size: 1em;display:none; left: 28%;font-family: "DungGeunMo";}
+#poom1{bottom: 10%; font-weight: 5px; font-size: 1em;display:none; left: 28%;font-family: "DungGeunMo";}
+#poom2{bottom: 10%; font-weight: 5px; font-size: 1em;display:none; left: 28%;font-family: "DungGeunMo";}
+#turn{bottom: 8%; left: 48%; position: absolute;animation: backk 3s alternate;  position: absolute;}
+	#turn img{width: 40px; height: auto;cursor: pointer; }
+
+#bx { position: absolute; bottom: 5%; left: 25%; display:none; }
+	#bx img{ width: 70%; height: auto;  }
+#win { position: absolute; z-index: 99;cursor: pointer; top:22%; left: 40%; }
+	#win img{ position: absolute; width: 50px; height: auto; z-index: 99;cursor: pointer;}
+
+#won { position: absolute; z-index: 99;cursor: pointer; top:40%; left: 0%; }
+	#won img{ position: absolute; width: 120px; height: 600px; z-index: 99;cursor: pointer;}
+.flashlight-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url('main.png') ;
+  background-size: width:1250px; height: 1000px;
+
+}
+.flashlight-area .flashlight {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  background-image: radial-gradient(600px at 50% 50%, transparent 0, #000 30%, #000 100%);
+}
+#okk{bottom: 13%; right: 25%;z-index: 6; cursor: pointer; position: absolute;display:none;}
+		#okk img{height: 20px;width: auto; }
+#oo{bottom: 13%; right: 25%;z-index: 6; cursor: pointer; position: absolute;display:none;}
+		#oo img{height: 20px;width: auto; }
+#container{position: relative; margin: auto; width:1250px; height: 1000px;font-family: "DungGeunMo"; }
+
+@keyframes backk{
+			0%{bottom: 11%;}
+			
+			100%{bottom: 8%;}
+		}	
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: #484535; } }
+
+
+h1 { 
+	color: #484535;
+	border-right: .2em solid #26241B;
+	 
+	width: 23ch;
+	margin: 2em 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	position: absolute;
+	-webkit-animation: typing 1s steps(20, end),
+	           blink-caret .1s step-end infinite alternate;z-index: 3;
+}	
+
+h2 { 
+	color: #484535;
+	border-right: .2em solid #26241B;
+	 
+	width: 44ch;
+	margin: 2em 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	position: absolute;
+	-webkit-animation: typing 1s steps(20, end),
+	           blink-caret .1s step-end infinite alternate;z-index: 3;
+}
+	</style>
+
+</head>
+<body>
+	<div id="container">
+	<audio id="but">
+		<source src="but.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="wipe">
+		<source src="wipe.mp3" type="audio/mpeg">
+	</audio>
+	
+		 <h1 id="poom">7층으로 가는 길이다.</h1>
+		 <h1 id="poom1">어두워서 갈 수가 없다.</h1>
+		 <h2 id="poom2">창문에 먼지가 낀 것 처럼 밖이 보이질 않는다.</h2>
+	<div id="okk">
+		<img src="okk.png">
+	</div>
+<div class="flashlight-area">
+  <div class="flashlight"></div>
+</div>
+<a href="https://seoojing.github.io/616/">
+	<div id="turn">
+		<img src="turn.png">
+	</div>
+	</a>
+	<div id="win">
+		<img src="blank.png">
+	</div>
+	<div id="won">
+		<img src="blank.png">
+	</div>
+
+	<div id="bx">
+		<img src="boox.png">
+	</div>
+	<div id="oo">
+		<img src="won.png">
+	</div>
+
+
+	</div>
+<script type="text/javascript">
+
+	win.onclick = function(){
+		but.play();
+			toggle = "on";
+			win.style.display = "none"
+			bx.style.display = "inline"
+			poom.style.display = "inline"
+			oo.style.display = "inline"
+			}
+
+	won.onclick = function(){
+		but.play();
+		wipe.play();
+			toggle = "on";
+			won.style.display = "none"
+			bx.style.display = "inline"
+			poom2.style.display = "inline"
+			okk.style.display = "inline"
+			}
+
+	oo.onclick = function(){
+		but.play();
+			toggle = "on";
+			poom.style.display = "none"
+			poom1.style.display = "inline"
+			okk.style.display = "inline"
+			oo.style.display = "none"
+			}
+	okk.onclick = function(){
+		but.play();
+			toggle = "on";
+			poom1.style.display = "none"
+			okk.style.display = "none"
+			bx.style.display = "none"
+			poom2.style.display = "none"
+			}
+var flashlight = document.querySelector('.flashlight');
+document.addEventListener('mousemove', function (_ref) {var clientX = _ref.clientX,clientY = _ref.clientY;
+  var percentX = clientX / window.innerWidth * 100;
+  var percentY = clientY / window.innerHeight * 100;
+
+  flashlight.style.backgroundImage = 'radial-gradient(600px at ' + percentX + '% ' + percentY + '%, transparent 0, #000 30%, #000 100%)';
+});
+
+
+</script>
+</body>
+
+
+</html>
